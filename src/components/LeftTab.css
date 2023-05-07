@@ -1,0 +1,112 @@
+.lefttab-holder {
+  background-color: #1B2436;
+  width: 200px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: 170px 115px 240px 1fr;
+}
+
+.name {
+  text-align: center;
+  color: aliceblue;
+  margin-top: 20px;
+}
+
+.logo-holder {
+  width: 200px;
+  height: 170px;
+  display: grid;
+  grid-template-rows: 50px 100;
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: rgb(255, 0, 0);
+  margin: auto;
+}
+
+.file-upload {
+  height: 70px;
+  width: 150px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+
+input[type='file'] {
+  display: none
+}
+
+.file-upload-input {
+  height: 70px;
+  width: 150px;
+  background-color: #141A28;
+  border: 2px dashed white;
+  border-radius: 10px;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  color: #c0c9d3;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+.buttons {
+  height: 200px;
+  width: 150px;
+  border-radius: 25px;
+  display: grid;
+  grid-template-rows: 40px 40px 40px 40px;
+  gap: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+
+.tabs-button {
+  height: 40px;
+  width: 150px;
+  background-color: #141A28;
+  border: 2px solid #b7c5d5;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  font-size: 16px;
+}
+
+.save-title {
+  height: 100%;
+  width: 100%;
+  display: flex;
+}
+
+.save-button {
+  width: 130px;
+  height: 50px;
+  background-color: azure;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.title-left-tab {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.you-are-viewing {
+  margin: 2px;
+  color: white;
+}
+
+.file-title {
+  text-align: center;
+  color: aquamarine;
+}

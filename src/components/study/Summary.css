@@ -1,0 +1,52 @@
+.create-summary {
+  height: 200px;
+  width: 400px;
+  background-color: #35495E;
+  border: 2px solid #b7c5d5;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  margin: auto;
+}
+
+.summary-section-content {
+  height: 100%;
+  width: 100%;
+  max-height: 90vh;
+  display: flex;
+}
+
+.summary {
+  height: 100%;
+  width: 100%;
+  background-color: #ebebeb;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.summary::-webkit-scrollbar {
+  width: 5px;
+}
+
+.summary::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 5px;
+}
+
+.summary::-webkit-scrollbar-track {
+  border-radius: 5px;
+}
+
+.summary-holder {
+  height: 100%;
+  width: 90%;
+  margin: auto;
+}
+
+.text {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,22 @@
+.app {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-page {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  max-height: 100vh;
+  background-color: #141A28;
+}
+
+h2 {
+  margin: 5px;
+}
+
+p {
+  margin: 2px;
+}
