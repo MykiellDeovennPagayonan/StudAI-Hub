@@ -33,6 +33,7 @@ export default function StudAI(props) {
 
   useEffect(() => {
     if (file !== null && file !== " ") {
+      console.log(file)
       ingestData()
       setPageNum(0)
       setContentNum(0)
@@ -43,6 +44,7 @@ export default function StudAI(props) {
       setSummarizedChunks([])
       setTitle("")
     }
+    console.log(file)
   }, [file])
 
   useEffect(() => {

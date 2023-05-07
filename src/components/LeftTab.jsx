@@ -1,7 +1,5 @@
 /* eslint-disable react/prop-types */
 import './LeftTab.css'
-import { addDoc, collection } from 'firebase/firestore';
-import { db } from '../functions/firebase';
 
 export default function LeftTab(props) {
   function pdfUpload(event) {
@@ -9,17 +7,11 @@ export default function LeftTab(props) {
     console.log(event.target.files[0])
   }
 
-  const saveCollectionRef = collection(db, "SavedFiles")
-
-  async function saveFile() {
-    await addDoc(saveCollectionRef, {test: "hi"})
-  }
-
   return (
     <div className='lefttab-holder'>
       <div className='logo-holder'>
         <h2 className='name'> StudAI Hub </h2>
-        <div className='logo'></div>
+        <img className="logo-img" src="src\images\logo.png" />
       </div>
       <div className='file-upload'>
         <label htmlFor="upload" className='file-upload-input'>Upload a PDF file</label>

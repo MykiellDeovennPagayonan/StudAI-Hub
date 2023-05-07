@@ -20,8 +20,6 @@ export default function Summary(props) {
     props.setSummarizedChunks(summarizedChunkcInitial)
   }
 
-  console.log(props.summarizedChunks)
-
   return (
     <>
       {props.summarizedChunks.length === 0 ?

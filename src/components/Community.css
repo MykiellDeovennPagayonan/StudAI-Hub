@@ -7,8 +7,6 @@
 .community-holder {
   width: 100%;
   height: 85vh;
-  overflow: hidden;
-  overflow-y: scroll;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;

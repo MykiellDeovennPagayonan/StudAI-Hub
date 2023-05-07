@@ -23,7 +23,7 @@ export default function Save(props) {
 
   const handlePost = async () => {
     if (!title || !description) {
-      alert("Please enter a title and a description for your post.")
+      alert("Please enter a title and a description.")
       return
     }
 

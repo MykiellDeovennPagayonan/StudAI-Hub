@@ -20,7 +20,5 @@ export default function handleSplitText(textToSplit) {
       splitText.push(splitTextAdd)
     }
   }
-
-  console.log(splitText)
   return splitText
 }

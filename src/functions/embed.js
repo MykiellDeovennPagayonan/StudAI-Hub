@@ -15,6 +15,5 @@ export default async function embed(splitText) {
     let embedding = response.data.data[0].embedding;
     embeddedChunks.push({index: i, embedding: embedding})
   }
-  console.log(embeddedChunks)
   return embeddedChunks;
 }

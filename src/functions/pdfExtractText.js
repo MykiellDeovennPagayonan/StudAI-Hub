@@ -17,7 +17,6 @@ export default function pdfExtractText(file) {
         const pageContent = await page.getTextContent();
         text += pageContent.items.map((item) => item.str).join('');
       }
-      console.log(text)
       resolve(text);
     };
     reader.readAsArrayBuffer(file);
