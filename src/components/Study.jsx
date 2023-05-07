@@ -17,7 +17,13 @@ export default function Study(props) {
   return (
     <div className='study'>
       {props.saving ?
-        <Save setSaving={props.setSaving}/>
+        <Save
+          multipleChoiceItems={props.multipleChoiceItems}
+          splitText={props.splitText}
+          conceptItems={props.conceptItems}
+          embeddedChunks={props.embeddedChunks}
+          summarizedChunks={props.summarizedChunks}
+          setSaving={props.setSaving}/>
         :
         <>
           {props.splitText.length === 0 ? 
@@ -29,6 +35,7 @@ export default function Study(props) {
             <div className='study-holder'>
               {props.contentNum === 0 &&
                 <Quiz
+                  file={props.file}
                   multipleChoiceItems={props.multipleChoiceItems} 
                   setMultipleChoiceItems={props.setMultipleChoiceItems} 
                   splitText={props.splitText}
@@ -38,15 +45,16 @@ export default function Study(props) {
                   setViewMultipleChoice={props.setViewMultipleChoice}/>}
               {props.contentNum === 1 &&
                 <Query
+                  file={props.file}
                   embeddedChunks={props.embeddedChunks}
                   splitText={props.splitText}/>}
               {props.contentNum === 2 &&
-                <Summary            
+                <Summary
                   summarizedChunks={props.summarizedChunks}
                   setSummarizedChunks={props.setSummarizedChunks}
                   splitText={props.splitText}/>}
               {props.contentNum === 3 &&
-                <Flashcards/>}
+                <Flashcards multipleChoiceItems={props.multipleChoiceItems}/>}
             </div>
           }
         </>

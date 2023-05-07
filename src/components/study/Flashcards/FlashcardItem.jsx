@@ -17,7 +17,6 @@ export default function FlashcardItem({ flashcard }) {
   useEffect(setMaxHeight, [
     flashcard.question,
     flashcard.answer,
-    flashcard.options,
   ]);
   useEffect(() => {
     window.addEventListener("resize", setMaxHeight);
@@ -31,10 +30,11 @@ export default function FlashcardItem({ flashcard }) {
       onClick={() => setFlip(!flip)}
     >
       <div className="front" ref={frontEl}>
-        {flashcard.question}
+        <p>Question: </p>
+        <p>{flashcard.getQuestion()}</p>
       </div>
       <div className="back" ref={backEl}>
-        {flashcard.answer}
+      <p>{flashcard.getAnswer()}</p>
       </div>
     </div>
   );

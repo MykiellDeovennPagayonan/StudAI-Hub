@@ -50,7 +50,7 @@ export default function ConceptualQuiz(props) {
         <button className='tabs-button' style={quizPage === 0 ? {backgroundColor: 'white', color: 'black'} : null} onClick={() => setQuizPage(0)}> Questions </button>
         <button className='tabs-button' style={quizPage === 1 ? {backgroundColor: 'white', color: 'black'} : null} onClick={() => setQuizPage(1)}> Answers </button>
         <div className="switch-quiz">
-          <button className="switch-quiz-button" onClick={() => {props.newBatchConcept(), setMessageNewBatch('Generating New Batch')}}> {messageNewbatch} </button>
+          {props.file !== " " ? <button className="switch-quiz-button" onClick={() => {props.newBatchMultipleChoice(), setMessageNewBatch('Generating New Batch')}}> {messageNewbatch} </button> : null}
           <button className="switch-quiz-button" onClick={handleSwitchQuiz}> {props.messageMultipleChoiceQuiz} </button>
         </div>
       </div>

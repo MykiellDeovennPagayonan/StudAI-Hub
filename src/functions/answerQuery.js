@@ -1,6 +1,6 @@
 import { Configuration, OpenAIApi } from "openai"
 const configuration = new Configuration({
-  apiKey: "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",
+  apiKey: "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",
 });
 const openai = new OpenAIApi(configuration);
 
@@ -60,7 +60,7 @@ export default async function answerQuery(query, embeddedChunks, splitText) {
   let answer = await openai.createChatCompletion({
     model: "gpt-3.5-turbo",
     messages: [
-      { role: "system", content: `Answer the following question with the information provided. Question ${query}`},
+      { role: "system", content: `Answer the following question with the information provided. if the answer is not in the information provided just say "I am sorry I could not find your answer in t is not in the document" . Question ${query}`},
       { role: "user", content: `information ${details}` }
     ]
   })

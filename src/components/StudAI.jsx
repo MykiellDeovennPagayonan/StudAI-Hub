@@ -9,6 +9,8 @@ import embed from '../functions/embed'
 import TopNav from './TopNav'
 import History from './History'
 import Community from './Community'
+import { ItemMultipleChoice } from '../classes/quizMultipleChoiceClass'
+import { ItemConcept } from '../classes/quizConceptClass'
 
 export default function StudAI(props) {
   const [pageNum, setPageNum] = useState(0)
@@ -20,7 +22,7 @@ export default function StudAI(props) {
   const [embeddedChunks, setEmbeddedChunks] = useState([])
   const [summarizedChunks, setSummarizedChunks] = useState([])
   const [viewMultipleChoice, setViewMultipleChoice] = useState(false)
-  const [title, setTitle] = useState("Hayyst")
+  const [title, setTitle] = useState("")
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
@@ -30,20 +32,24 @@ export default function StudAI(props) {
   }, [contentNum])
 
   useEffect(() => {
-    if (file !== null) {
+    if (file !== null && file !== " ") {
       ingestData()
       setPageNum(0)
       setContentNum(0)
       setSplitText([])
       setMultipleChoiceItems([])
+      setConceptItems([])
       setEmbeddedChunks([])
       setSummarizedChunks([])
+      setTitle("")
     }
   }, [file])
 
   useEffect(() => {
     toEmbed()
   }, [splitText])
+
+
 
   async function ingestData() {
     const text = await pdfExtractText(file)
@@ -56,8 +62,32 @@ export default function StudAI(props) {
     setEmbeddedChunks(embeddedChunksInitial)
   }
 
-  async function loadNew() {
-    console.log("hi")
+  async function loadNew(file) {
+    let multipleChoiceItemsInitial = []
+    let conceptItemsInitial = []
+
+    for (let i = 0; i < file.multipleChoiceItems.length; i++) {
+      let itemMultipleChoiceInitial = new ItemMultipleChoice()
+      itemMultipleChoiceInitial.setQuestion(file.multipleChoiceItems[i].question)
+      itemMultipleChoiceInitial.setChoices(file.multipleChoiceItems[i].choices)
+      itemMultipleChoiceInitial.setAnswer(file.multipleChoiceItems[i].answer)
+      multipleChoiceItemsInitial.push(itemMultipleChoiceInitial)
+    }
+
+    for (let i = 0; i < file.conceptItems.length; i++) {
+      let itemConceptInitial = new ItemConcept()
+      itemConceptInitial.setQuestion(file.conceptItems[i].question)
+      itemConceptInitial.setAnswer(file.conceptItems[i].answer)
+      conceptItemsInitial.push(itemConceptInitial)
+    }
+
+    setFile(" ")
+    setTitle(file.title)
+    setMultipleChoiceItems(multipleChoiceItemsInitial)
+    setSplitText(file.splitText)
+    setConceptItems(conceptItemsInitial)
+    setEmbeddedChunks(file.embeddedChunks)
+    setSummarizedChunks(file.summarizedChunks)
   }
 
   return (
@@ -80,7 +110,8 @@ export default function StudAI(props) {
           <Study
             embeddedChunks={embeddedChunks}
             contentNum={contentNum}
-            file={file} setFile={setFile}
+            file={file}
+            setFile={setFile}
             splitText={splitText} 
             multipleChoiceItems={multipleChoiceItems} 
             setMultipleChoiceItems={setMultipleChoiceItems}

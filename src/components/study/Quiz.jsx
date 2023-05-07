@@ -105,6 +105,7 @@ export default function Quiz(props) {
         <>
           {props.viewMultipleChoice ? 
             <MultipleChoice
+              file={props.file}
               setViewMultipleChoice={props.setViewMultipleChoice}
               multipleChoiceItems={props.multipleChoiceItems} 
               setMultipleChoiceItems={props.setMultipleChoiceItems}
@@ -114,6 +115,7 @@ export default function Quiz(props) {
               newBatchMultipleChoice={newBatchMultipleChoice}/>
             :
             <ConceptualQuiz
+              file={props.file}
               splitText={props.splitText}
               setViewMultipleChoice={props.setViewMultipleChoice}
               conceptItems={props.conceptItems}
