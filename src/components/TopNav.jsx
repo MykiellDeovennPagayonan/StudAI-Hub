@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 import { signOut } from 'firebase/auth'
 import { auth } from '../functions/firebase'
 import { useNavigate } from "react-router-dom";
-
+import { IconButton } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function TopNav(props) {
   let navigate = useNavigate()
@@ -31,7 +32,14 @@ export default function TopNav(props) {
               <p className='login-button' onClick={signUSerOut}> Log out </p>
             </div>
             :
-            <Link to="/login" className='login-link'><p className='login-button'> Login </p></Link>
+            <Link to="/login" className='login-link'>
+              <IconButton
+                sx={{ marginRight: 3 }}
+                className="topbar-btn"
+              >
+                <AccountCircleIcon sx={{ color: "white", height: 30, width: 40 }} />
+              </IconButton>
+            </Link>
             }
         </div>
       </div>

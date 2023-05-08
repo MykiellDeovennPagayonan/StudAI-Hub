@@ -1,5 +1,10 @@
 /* eslint-disable react/prop-types */
 import './LeftTab.css'
+import { Button } from "@mui/material";
+import StyleOutlinedIcon from "@mui/icons-material/StyleOutlined";
+import QuizOutlinedIcon from "@mui/icons-material/QuizOutlined";
+import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
+import QuestionAnswerOutlinedIcon from "@mui/icons-material/QuestionAnswerOutlined";
 
 export default function LeftTab(props) {
   function pdfUpload(event) {
