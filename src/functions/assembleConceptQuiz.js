@@ -7,9 +7,9 @@ export default function assembleConceptQuiz(quizText) {
   for (let i = 2; i < quizText.length; i++) {
     if((quizText[i - 1] === "." || quizText[i - 1] === ":") && (quizText[i - 2] === "1" || quizText[i - 2] === "2" || quizText[i - 2] === "3"  || quizText[i - 2] === "4" || quizText[i - 2] === "5" || quizText[i - 2] === "6" || quizText[i - 2] === "7" || quizText[i - 2] === "8" || quizText[i - 2] === "9" || quizText[i - 2] === "0")) {
       let question = ""
-      while(quizText[i] !== "\n") {
+      while (i < quizText.length && quizText[i] !== "\n") {
         i++
-        question += quizText[i]
+        question += String(quizText[i])
       }
       questionItem.setQuestion(question)
     }

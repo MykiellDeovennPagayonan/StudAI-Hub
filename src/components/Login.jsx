@@ -21,7 +21,21 @@ export default function Login(props) {
       <Link to="/" className="login-back-button"> Back </Link>
       <div className="login-content">
         <h1> Sign in with Google </h1>
-        <button className="signin-with-google" onClick={signInWithGoogle}> Sign in with Google</button>
+        <div className="googles">
+          <button className="google" onClick={signInWithGoogle}>
+            <img
+              className="google-logo"
+              src="src\images\google-logo.png"
+              alt="google icon"
+            />
+            <span style={{ color: "#4285f4" }}>G</span>
+            <span style={{ color: "#ea4335" }}>o</span>
+            <span style={{ color: "rgb(251, 188, 5)" }}>o</span>
+            <span style={{ color: "#4285f4" }}>g</span>
+            <span style={{ color: "#34a853" }}>l</span>
+            <span style={{ color: "#ea4335" }}>e</span>
+          </button>
+        </div>
       </div>
     </div>
   );

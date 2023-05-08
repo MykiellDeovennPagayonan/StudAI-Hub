@@ -16,6 +16,13 @@ export default async function createNewBatchMultipleChoiceQuiz(splitTextChunk, d
           C. <Choice 3>
           D. <Choice 4>
         Answer: <Correct Letter>
+        \n
+        <Number>. <question>?
+          A. <Choice 1>
+          B. <Choice 2>
+          C. <Choice 3>
+          D. <Choice 4>
+        Answer: <Correct Letter>
         
         They must be completely different from the following questions:
         ${doNotInclude}
@@ -23,10 +30,12 @@ export default async function createNewBatchMultipleChoiceQuiz(splitTextChunk, d
         { role: "user", content: info }
       ]
     })
-    return content.data.choices[0].message.content
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(content.data.choices[0].message.content);
+      }, 7000);
+    });
   }
   
-  return new Promise((resolve) => {
-    resolve(generate(splitTextChunk, doNotInclude))
-  })
+  return generate(splitTextChunk, doNotInclude)
 }

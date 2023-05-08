@@ -12,17 +12,22 @@ export default async function createNewBatchConceptualQuiz(splitTextChunk, doNot
         { role: "system", content: `make 5 conceptual questions that needs deep explaining from whatever information I provide. Provide a long "one" sentence answer for each question. Format: 
         <Number>. <question>?
         Answer: <Answer>
-        
+        \n
+        <Number>. <question>?
+        Answer: <Answer>
+
         They must be completely different from the following questions:
         ${doNotInclude}
         `},
         { role: "user", content: info }
       ]
     })
-    return content.data.choices[0].message.content
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(content.data.choices[0].message.content);
+      }, 15000);
+    });
   }
   
-  return new Promise((resolve) => {
-    resolve(generate(splitTextChunk, doNotInclude))
-  })
+  return generate(splitTextChunk, doNotInclude)
 }

@@ -11,14 +11,19 @@ export default async function createConceptualQuiz(splitTextChunk) {
       messages: [
         { role: "system", content: `make 5 conceptual questions that needs deep explaining from whatever information I provide. Provide a long "one" sentence answer for each question. Format: 
         <Number>. <question>?
+        Answer: <Answer>
+        \n
+        <Number>. <question>?
         Answer: <Answer>`},
         { role: "user", content: info }
       ]
     })
-    return content.data.choices[0].message.content
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(content.data.choices[0].message.content);
+      }, 15000);
+    });
   }
   
-  return new Promise((resolve) => {
-    resolve(generate(splitTextChunk))
-  })
+  return generate(splitTextChunk)
 }

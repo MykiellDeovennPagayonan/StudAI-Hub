@@ -16,7 +16,7 @@ export default function assembleMultipleChoiceQuiz(quizText) {
 
     if((quizText[i - 1] === "." || quizText[i - 1] === ":") && (quizText[i - 2] === "A" || quizText[i - 2] === "B" || quizText[i - 2] === "C"  || quizText[i - 2] === "D")) {
       let choice = ""
-      while(quizText[i] !== "\n") {
+      while(i < quizText.length && quizText[i] !== "\n") {
         i++
         choice += quizText[i]
       }
